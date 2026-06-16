@@ -13,15 +13,15 @@ conda activate sam2
 
 Then install SAM2 following the official instructions of the SAM2 repository used in your laboratory setup.
 
-## 2. Download a SAM2 checkpoint
+## 2. Configure model weights
 
-Place the checkpoint outside this repository, for example:
+SAM2 model weights are handled as an external dependency. Store the checkpoint in a local model directory and reference it from the MATLAB-side JSON configuration file.
+
+Example local checkpoint path:
 
 ```text
 D:/models/sam2/checkpoints/sam2.1_b.pt
 ```
-
-Do not commit checkpoints to GitHub. They are excluded by `.gitignore`.
 
 ## 3. Configure MATLAB-side JSON file
 
@@ -35,14 +35,14 @@ Example:
 
 ```json
 {
-  "pythonExe": "C:/Users/<user>/miniconda3/envs/sam2/python.exe",
+  "pythonExe": "D:/software/miniconda/envs/sam2/python.exe",
   "repoRoot": "D:/tools/sam2",
   "checkpoint": "D:/models/sam2/checkpoints/sam2.1_b.pt",
   "config": "configs/sam2.1/sam2.1_hiera_b+.yaml"
 }
 ```
 
-Use forward slashes or escaped backslashes in JSON paths.
+Use forward slashes or escaped backslashes in JSON paths. Replace all example paths with the paths used in the local workstation.
 
 ## 4. Test the environment
 
@@ -65,6 +65,6 @@ run_suite
 
 Launch **Degradation/Tunnel Annotation** and load a `.lif` file. The user remains responsible for reviewing masks, accepting valid annotations and rejecting incorrect masks.
 
-## 6. Output policy
+## 6. Output interpretation
 
-The workflow exports reviewed masks, labels and metadata. Treat these outputs as expert-reviewed annotations, not as fully automatic ground truth. They are suitable for downstream review, object quantification and future supervised segmentation model development.
+The workflow exports reviewed masks, labels and metadata. Treat these outputs as expert-reviewed annotations rather than fully automatic ground truth. They are suitable for downstream review, object quantification and future supervised segmentation model development.

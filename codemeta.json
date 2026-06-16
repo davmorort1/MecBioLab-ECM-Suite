@@ -29,5 +29,12 @@
     "MATLAB",
     "SAM2",
     "breast cancer"
-  ]
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.20717656",
+  "sameAs": [
+    "https://doi.org/10.5281/zenodo.20717656"
+  ],
+  "downloadUrl": "https://github.com/davmorort1/MecBioLab-ECM-Suite/releases/tag/v1.0.0",
+  "releaseNotes": "Initial public release archived in Zenodo.",
+  "datePublished": "2026-06-16"
 }

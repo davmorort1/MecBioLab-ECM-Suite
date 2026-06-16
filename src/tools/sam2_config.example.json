@@ -1,6 +1,6 @@
 {
-  "pythonExe": "C:/Users/<user>/miniconda3/envs/sam2/python.exe",
-  "repoRoot": "C:/path/to/sam2",
-  "checkpoint": "C:/path/to/checkpoints/sam2.1_b.pt",
+  "pythonExe": "D:/software/miniconda/envs/sam2/python.exe",
+  "repoRoot": "D:/software/sam2",
+  "checkpoint": "D:/models/sam2/checkpoints/sam2.1_b.pt",
   "config": "configs/sam2.1/sam2.1_hiera_b+.yaml"
 }

@@ -1,6 +1,6 @@
 # Workflow outputs
 
-This document defines the expected outputs of each public workflow. It also clarifies which outputs should be uploaded to GitHub and which should remain in private storage.
+This document defines the expected outputs of each public workflow and clarifies how generated files are organised during a typical analysis run.
 
 ## 1. Geodesic Tract Analysis
 
@@ -14,9 +14,9 @@ The geodesic workflow estimates 3D ECM tracts between detected cell regions usin
 |---|---|---|
 | Quantitative tract tables | CSV/XLSX/MAT summaries, cell-pair IDs, physical tract length, linearity, fractional anisotropy | Statistical comparison between positions/conditions |
 | Path coordinates | 3D geodesic coordinates and calibrated path arrays | Reproducibility, downstream geometry analysis |
-| Inertia and tensor descriptors | local tract tensor summaries, anisotropy descriptors | Structural characterization of ECM tracts |
+| Inertia and tensor descriptors | Local tract tensor summaries, anisotropy descriptors | Structural characterization of ECM tracts |
 | Review figures | 3D tract renderings, path overlays, inertia maps, QC figures | Visual validation and publication figures |
-| Run metadata | parameters, input file metadata, voxel calibration, execution logs | Reproducibility |
+| Run metadata | Parameters, input file metadata, voxel calibration, execution logs | Reproducibility |
 
 ### Not produced by this workflow
 
@@ -32,30 +32,30 @@ The annotation workflow supports expert-reviewed segmentation of degradation/tun
 
 | Output class | Examples | Typical use |
 |---|---|---|
-| Plane exports | raw Z-planes, channel exports | Human review and traceability |
-| Reviewed masks | binary masks, accepted/no-tunnel labels | Degradation/tunnel quantification |
-| Semantic labels | multiclass masks with raw plane + mask pairing | Training data for future segmentation workflows |
-| 3D object outputs | connected degradation/tunnel objects, object volumes, centroids, bounding boxes | Quantitative 3D remodeling analysis |
-| Visual review outputs | overlays, 3D renders, QC figures | Manual validation and publication figures |
-| Run metadata | parameters, reviewer choices, input metadata, execution logs | Reproducibility |
+| Plane exports | Raw Z-planes, channel exports | Human review and traceability |
+| Reviewed masks | Binary masks, accepted/no-tunnel labels | Degradation/tunnel quantification |
+| Semantic labels | Multiclass masks with raw plane + mask pairing | Training data for future segmentation workflows |
+| 3D object outputs | Connected degradation/tunnel objects, object volumes, centroids, bounding boxes | Quantitative 3D remodelling analysis |
+| Visual review outputs | Overlays, 3D renders, QC figures | Manual validation and publication figures |
+| Run metadata | Parameters, reviewer choices, input metadata, execution logs | Reproducibility |
 
-## 3. GitHub upload policy
+## 3. Public repository contents and local run outputs
 
-Upload only lightweight documentation, code and representative figures. Do not upload raw microscopy data, full result folders, `.mat` arrays, full TIFF stacks or model checkpoints.
+The public repository contains the software implementation, documentation, metadata files and compact representative figures used to illustrate expected outputs. Full analysis outputs are generated locally by the user and should be stored with the corresponding project data.
 
-Recommended GitHub-visible files:
+Recommended repository-visible material:
 
 - source code;
 - README and documentation;
-- representative compressed PNG/JPG figures;
+- compact PNG/JPG figures for documentation;
 - example folder structure;
-- empty output placeholders such as `results/.gitkeep`.
+- citation and software metadata files.
 
-Recommended private/archive files:
+Recommended local or institutional storage material:
 
-- `.lif` raw files;
-- complete run outputs;
-- SAM2 checkpoints;
-- exported `.mat` workspaces;
-- large TIFF stacks;
-- confidential laboratory data.
+- raw microscopy acquisitions;
+- complete run-output folders;
+- MATLAB workspaces and large arrays;
+- SAM2 model weights;
+- exported TIFF stacks;
+- project-specific laboratory records.

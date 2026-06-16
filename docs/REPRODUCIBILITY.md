@@ -1,11 +1,11 @@
-# Reproducibility and output policy
+# Reproducibility and output management
 
 The suite follows a traceability-oriented workflow. Every analysis run should be stored in a standardized output folder together with input metadata, parameter settings, numerical tables, figures and execution logs.
 
 ## 1. General principles
 
 - Use a clean output folder outside the Git repository.
-- Keep raw data and heavy outputs outside GitHub.
+- Preserve raw data and complete generated outputs in the corresponding project data location.
 - Record MATLAB version, operating system, Bio-Formats version when available and Git commit if available.
 - Preserve input file identifiers, series/position numbers, selected channels and voxel calibration.
 - Inspect review figures before interpreting quantitative tables.
@@ -44,23 +44,22 @@ For each run, preserve:
 
 The key reproducible output is the reviewed mask set plus the metadata describing how it was produced.
 
-## 4. Files excluded from GitHub
+## 4. Repository-external assets
 
-The `.gitignore` is configured to prevent accidental upload of heavy or private data formats, including:
+The public GitHub repository is kept lightweight and software-focused. Large microscopy acquisitions, exported image stacks, MATLAB workspaces, model weights, local Python environments and complete run-output folders are treated as external project assets.
 
-- `.lif`, `.czi`, `.nd2`, `.ims` microscopy files;
-- `.tif`/`.tiff` stacks;
-- `.mat`, `.h5`, `.hdf5` result arrays;
-- `.pt`, `.pth`, `.ckpt` model checkpoints;
-- Python environments and caches;
-- complete local result folders.
+This separation keeps the code release citable and easy to review while allowing full run outputs to be preserved in the appropriate laboratory or institutional data location.
 
 ## 5. Recommended release procedure
 
-Before journal submission:
+The public `v1.0.0` release has been archived in Zenodo:
 
-1. verify that the GitHub repository contains only the two public workflows;
+<https://doi.org/10.5281/zenodo.20717656>
+
+Recommended procedure for future releases:
+
+1. verify that the GitHub repository contains the public workflows described in the manuscript;
 2. run a clean test from a fresh folder;
-3. check that no private paths or raw datasets are committed;
-4. tag the release as `v1.0.0`;
-5. archive the release in Zenodo and add the DOI to the manuscript metadata.
+3. check that environment-specific paths are not embedded in documentation or configuration files;
+4. tag the release with a semantic version number;
+5. archive the release in Zenodo and add the new DOI to the manuscript/repository metadata.

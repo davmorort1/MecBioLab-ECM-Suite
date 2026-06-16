@@ -138,14 +138,14 @@ For each analysis run, keep:
 - output folder;
 - reviewer identity or review protocol for manual annotations.
 
-## 8. What not to upload to GitHub
+## 8. Data management and external assets
 
-Do not upload:
+The repository is designed as a lightweight, citable software release. Full analysis projects typically combine the public code with local assets managed outside GitHub:
 
-- `.lif`, `.czi`, `.nd2`, `.ims` microscopy datasets;
-- full `.tif` image stacks;
-- result `.mat` files;
-- SAM2 checkpoints;
-- Python environments;
-- personal absolute paths;
-- private laboratory data.
+- raw confocal acquisitions and exported image stacks;
+- complete numerical output folders generated during analysis;
+- MATLAB workspaces and large intermediate arrays;
+- SAM2 model weights and local Python environments;
+- laboratory-specific metadata and project records.
+
+For reproducible use, keep the exported parameter logs, calibration metadata, selected series/position identifiers and quality-control figures together with the corresponding local dataset. The public GitHub repository should remain focused on source code, documentation, compact representative figures and citation metadata.

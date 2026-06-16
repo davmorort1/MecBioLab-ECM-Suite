@@ -1,5 +1,5 @@
 # Model checkpoints
 
-SAM2 checkpoints are not distributed with this repository. Download them from the official SAM2 source and configure local paths in `src/tools/sam2_config.json`.
+SAM2 checkpoints are external model assets and are not distributed with this software release.
 
-Do not commit `.pt`, `.pth` or `.ckpt` files.
+Download model weights from the official SAM2 source used in your laboratory setup and configure the local path in `src/tools/sam2_config.json`.

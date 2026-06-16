@@ -1,0 +1,21 @@
+{
+  "title": "3D Mechano-Biological Analysis Suite",
+  "creators": [
+    {
+      "name": "Morón Ortega, David",
+      "affiliation": "MecBioLab Research Group, Universidad de Sevilla"
+    }
+  ],
+  "description": "Open-source MATLAB toolkit for geodesic ECM tract analysis and SAM2-assisted degradation/tunnel annotation in 3D confocal microscopy datasets.",
+  "license": "MIT",
+  "keywords": [
+    "extracellular matrix",
+    "collagen",
+    "confocal microscopy",
+    "bioimage analysis",
+    "MATLAB",
+    "SAM2",
+    "breast cancer"
+  ],
+  "version": "v1.0.0 Final Release"
+}

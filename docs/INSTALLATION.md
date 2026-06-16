@@ -91,7 +91,7 @@ Select an output folder outside the Git repository, for example:
 D:/MecBioLab_outputs/
 ```
 
-Do not export large result folders inside the repository. The `.gitignore` excludes common heavy files, but keeping outputs outside the repository is safer.
+For routine analyses, use an output folder outside the repository. This keeps the public code tree separate from generated project data and simplifies version control.
 
 ## 7. Troubleshooting
 

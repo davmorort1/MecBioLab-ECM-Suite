@@ -1,15 +1,16 @@
 # Manifest
 
-This manifest describes the files intentionally included in the GitHub release.
+This manifest describes the files included in the GitHub release.
 
 ## Root files
 
 - `README.md`: repository overview and quick start.
 - `LICENSE` / `LICENSE.txt`: MIT license.
-- `CITATION.cff`: citation metadata.
+- `CITATION.cff`: citation metadata, including the Zenodo DOI for v1.0.0.
+- Zenodo archived release: <https://doi.org/10.5281/zenodo.20717656>.
 - `CHANGELOG.md`: release notes.
 - `MANIFEST.md`: this file.
-- `.gitignore`: protects against accidental upload of raw microscopy data, heavy outputs and model checkpoints.
+- `.gitignore`: repository filter for local data, environment and generated-output formats.
 - `run_suite.m`: MATLAB entry point.
 - `startup.m`: optional MATLAB path helper.
 
@@ -27,18 +28,18 @@ This manifest describes the files intentionally included in the GitHub release.
 - `docs/USER_GUIDE.md`: practical usage guide.
 - `docs/SAM2_SETUP.md`: SAM2 configuration instructions.
 - `docs/OUTPUTS.md`: workflow output definitions.
-- `docs/REPRODUCIBILITY.md`: reproducibility and output policy.
-- `docs/PUBLICATION_SCOPE.md`: description of included/excluded workflows.
+- `docs/REPRODUCIBILITY.md`: reproducibility and output-management documentation.
+- `docs/PUBLICATION_SCOPE.md`: description of the release scope.
 - `docs/figures/`: lightweight representative figures.
 
-## Placeholders
+## Supporting folders
 
-- `data/README.md`: explains that raw data are not stored in GitHub.
-- `examples/README.md`: explains expected example-data policy.
-- `models/checkpoints/README.md`: explains checkpoint policy.
-- `third_party/sam2/README.md`: explains external SAM2 installation policy.
-- `results/.gitkeep`: keeps the results folder visible without committing outputs.
+- `data/README.md`: data-management note.
+- `examples/README.md`: example-material note.
+- `models/checkpoints/README.md`: SAM2 checkpoint note.
+- `third_party/sam2/README.md`: external SAM2 dependency note.
+- `results/.gitkeep`: keeps the local output folder available in the repository layout.
 
-## Excluded files
+## Repository boundary
 
-The repository intentionally excludes raw `.lif` files, TIFF stacks, `.mat` outputs, HDF5 files, SAM2 checkpoints, Python environments and large result folders.
+The release contains software, documentation, metadata and lightweight representative figures. Raw acquisitions, complete analysis outputs, model weights and local environment files are handled as external project assets.
