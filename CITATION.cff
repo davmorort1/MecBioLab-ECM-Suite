@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated SoftwareX article once available and this repository."
+title: "3D Mechano-Biological Analysis Suite"
+version: "v1.0.0 Final Release"
+date-released: "2026-06-15"
+repository-code: "https://github.com/davmorort1/MecBioLab-ECM-Suite"
+license: "MIT"
+authors:
+  - family-names: "Morón Ortega"
+    given-names: "David"
+    email: "davmorort1@alum.us.es"
+    affiliation: "MecBioLab Research Group, Universidad de Sevilla"
+keywords:
+  - extracellular matrix
+  - collagen
+  - breast cancer
+  - bioimage analysis
+  - confocal microscopy
+  - MATLAB
+  - SAM2

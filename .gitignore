@@ -1,0 +1,45 @@
+
+# MATLAB temporary/autosave files
+*.asv
+*.m~
+*.autosave
+*.mex*
+slprj/
+codegen/
+build/
+
+# Large microscopy datasets and outputs
+*.lif
+*.tif
+*.tiff
+*.czi
+*.nd2
+*.ims
+*.mat
+*.h5
+*.hdf5
+results/**
+data/**
+!data/README.md
+!results/.gitkeep
+
+# Model checkpoints and generated model assets
+*.pt
+*.pth
+*.ckpt
+models/checkpoints/**
+!models/checkpoints/README.md
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

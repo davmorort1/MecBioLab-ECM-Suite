@@ -1,0 +1,33 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "3D Mechano-Biological Analysis Suite",
+  "version": "v1.0.0 Final Release",
+  "description": "MATLAB toolkit for geodesic ECM tract analysis and SAM2-assisted degradation/tunnel annotation in 3D confocal microscopy datasets.",
+  "codeRepository": "https://github.com/davmorort1/MecBioLab-ECM-Suite",
+  "license": "https://spdx.org/licenses/MIT.html",
+  "programmingLanguage": [
+    "MATLAB"
+  ],
+  "operatingSystem": [
+    "Windows 11"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "David",
+      "familyName": "Morón Ortega",
+      "email": "davmorort1@alum.us.es",
+      "affiliation": "MecBioLab Research Group, Universidad de Sevilla"
+    }
+  ],
+  "keywords": [
+    "extracellular matrix",
+    "collagen",
+    "confocal microscopy",
+    "bioimage analysis",
+    "MATLAB",
+    "SAM2",
+    "breast cancer"
+  ]
+}
