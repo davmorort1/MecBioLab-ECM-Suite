@@ -1,14 +1,14 @@
 # Changelog
 
-## v1.0.0 Final Release
+## v1.1.0 Final Release
 
-Initial public release aligned with the SoftwareX manuscript.
+Update aligned with the revised SoftwareX manuscript.
 
-Archived release DOI: <https://doi.org/10.5281/zenodo.20717656>.
+Archived release DOI: <PENDING_ZENODO_DOI> (To be updated after release).
 
 ### Included
 
-- Geodesic Tract Analysis workflow.
+- Continuous ECM Density Mapping workflow.
 - SAM2-assisted Degradation and Tunnel Annotation workflow.
 - MATLAB graphical launcher.
 - Documentation for installation, use, SAM2 setup, outputs and reproducibility.
@@ -16,5 +16,4 @@ Archived release DOI: <https://doi.org/10.5281/zenodo.20717656>.
 - MIT license and citation metadata.
 
 ### Release scope
-
-The v1.0.0 archive contains the two workflows described in the SoftwareX manuscript. Raw microscopy datasets, complete local run outputs, SAM2 model weights and development branches outside the manuscript scope are managed separately from the public code release.
+This version replaces the previous geodesic tract algorithm with a threshold-free continuous density mapping approach, as reflected in the final manuscript.

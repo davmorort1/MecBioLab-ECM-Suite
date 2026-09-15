@@ -6,40 +6,32 @@ This manifest describes the files included in the GitHub release.
 
 - `README.md`: repository overview and quick start.
 - `LICENSE` / `LICENSE.txt`: MIT license.
-- `CITATION.cff`: citation metadata, including the Zenodo DOI for v1.0.0.
-- Zenodo archived release: <https://doi.org/10.5281/zenodo.20717656>.
+- `CITATION.cff`: citation metadata.
 - `CHANGELOG.md`: release notes.
 - `MANIFEST.md`: this file.
 - `.gitignore`: repository filter for local data, environment and generated-output formats.
-- `run_suite.m`: MATLAB entry point.
-- `startup.m`: optional MATLAB path helper.
+- `run_suite.m`: execution entry point.
+- `startup.m`: path configuration.
+- `codemeta.json` / `.zenodo.json`: software metadata and registry hooks.
 
-## Source code
+## Source and tool directories
 
-- `src/app_main.m`: graphical launcher.
-- `src/tools/geodesic_tract_analysis.m`: geodesic ECM tract workflow.
-- `src/tools/degradation_tunnel_annotation.m`: SAM2-assisted degradation/tunnel annotation workflow.
-- `src/tools/sam2_config.example.json`: example SAM2 configuration file.
-- `src/tools/sam2_config.json`: empty local SAM2 configuration template.
+- `src/app_main.m`: graphical dashboard.
+- `src/tools/density.m`: continuous density mapping workflow.
+- `src/tools/degradation_tunnel_annotation.m`: SAM2-assisted annotation workflow.
+- `src/tools/sam2_config.json`: Python environment configuration template.
+- `tools/compile_standalone.m`: MATLAB Compiler build script.
 
 ## Documentation
 
-- `docs/INSTALLATION.md`: installation guide.
-- `docs/USER_GUIDE.md`: practical usage guide.
-- `docs/SAM2_SETUP.md`: SAM2 configuration instructions.
-- `docs/OUTPUTS.md`: workflow output definitions.
-- `docs/REPRODUCIBILITY.md`: reproducibility and output-management documentation.
-- `docs/PUBLICATION_SCOPE.md`: description of the release scope.
-- `docs/figures/`: lightweight representative figures.
+- `docs/USER_GUIDE.md`: workflow logic and parameters.
+- `docs/INSTALLATION.md`: requirements and dependencies.
+- `docs/SAM2_SETUP.md`: Python and Segment Anything Model 2 configuration.
+- `docs/OUTPUTS.md`: description of standardized exports.
+- `docs/REPRODUCIBILITY.md`: parameters and data management.
+- `docs/PUBLICATION_SCOPE.md`: relation to the SoftwareX manuscript.
+- `docs/figures/`: representative lightweight UI and quality-control images.
 
-## Supporting folders
+## External data and models
 
-- `data/README.md`: data-management note.
-- `examples/README.md`: example-material note.
-- `models/checkpoints/README.md`: SAM2 checkpoint note.
-- `third_party/sam2/README.md`: external SAM2 dependency note.
-- `results/.gitkeep`: keeps the local output folder available in the repository layout.
-
-## Repository boundary
-
-The release contains software, documentation, metadata and lightweight representative figures. Raw acquisitions, complete analysis outputs, model weights and local environment files are handled as external project assets.
+The directories `data/`, `examples/` and `models/` contain placeholders (`README.md`). Full microscopy files, external scripts and local SAM2 model checkpoints are not archived in this codebase release.

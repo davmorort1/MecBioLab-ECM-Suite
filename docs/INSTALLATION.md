@@ -1,6 +1,6 @@
 # Installation guide
 
-This guide describes how to install the public release of **3D Mechano-Biological Analysis Suite**.
+This guide describes how to install the public release of **3D Mechanobiological Analysis Suite**.
 
 ## 1. Requirements
 
@@ -24,93 +24,33 @@ The development environment included:
 - Parallel Computing Toolbox 24.2
 - Medical Imaging Toolbox 24.2
 - MATLAB Compiler 24.2
-- Control System Toolbox 24.2
 
-The most important dependency for image processing is **Image Processing Toolbox**. Some optional visualization, compilation or parallel workflows may depend on the other installed toolboxes.
+*(Note: Control System Toolbox was installed locally but is not required for the core workflows).*
 
-## 2. Download the repository
+## 2. MATLAB installation
 
-Clone the repository:
+1. Clone or download the repository to a local folder (e.g. `C:\Projects\MecBioLab-ECM-Suite`).
+2. Open MATLAB and navigate to this folder.
+3. The `startup.m` or `run_suite.m` script will automatically add `src/tools/` to the MATLAB path during execution.
 
-```bash
-git clone https://github.com/davmorort1/MecBioLab-ECM-Suite.git
-cd MecBioLab-ECM-Suite
-```
+## 3. Bio-Formats configuration
 
-Alternatively, download the repository as a ZIP file and extract it to a local folder.
+The software requires Bio-Formats to read physical voxel metadata from proprietary `.lif` files.
 
-## 3. Install Bio-Formats / bfmatlab
+1. Download `bfmatlab.zip` from the [Open Microscopy Environment (OME)](https://www.openmicroscopy.org/bio-formats/downloads/).
+2. Extract the folder to a permanent location.
+3. Add the `bfmatlab` folder to your MATLAB path using `pathtool` or `addpath()`.
+4. To verify the installation, type `bfGetReader` in the MATLAB Command Window. If no error appears, the reader is configured.
 
-The software expects Bio-Formats MATLAB functions to be available in the MATLAB path when reading Leica `.lif` files.
+## 4. SAM2 configuration (Annotation workflow only)
 
-General steps:
+The human-in-the-loop degradation/tunnel annotation workflow uses Segment Anything Model 2 (SAM2) via a Python backend. If you only intend to use the continuous density mapping workflow, this step is not required.
 
-1. Download the Bio-Formats MATLAB package from the OME Bio-Formats distribution.
-2. Extract it to a stable local folder, for example:
+For complete Python, PyTorch, and SAM2 installation instructions, see [SAM2_SETUP.md](SAM2_SETUP.md).
 
-```text
-C:/tools/bfmatlab/
-```
+## 5. Verification
 
-3. In MATLAB, add the folder to the path:
-
-```matlab
-addpath('C:/tools/bfmatlab')
-savepath
-```
-
-4. Test that the Bio-Formats reader is visible:
-
-```matlab
-which bfGetReader
-```
-
-If MATLAB returns an empty result, Bio-Formats is not correctly installed in the path.
-
-## 4. Configure SAM2, if needed
-
-SAM2 is required only for the degradation/tunnel annotation workflow. Geodesic Tract Analysis can be used without SAM2.
-
-See [`SAM2_SETUP.md`](SAM2_SETUP.md) for detailed configuration.
-
-## 5. Start the suite
-
-Open MATLAB in the repository root and run:
-
-```matlab
-run_suite
-```
-
-This command adds the repository source folders to the MATLAB path and opens the graphical launcher.
-
-## 6. Recommended output location
-
-Select an output folder outside the Git repository, for example:
-
-```text
-D:/MecBioLab_outputs/
-```
-
-For routine analyses, use an output folder outside the repository. This keeps the public code tree separate from generated project data and simplifies version control.
-
-## 7. Troubleshooting
-
-### MATLAB cannot find `run_suite`
-
-Make sure the MATLAB current folder is the repository root.
-
-### MATLAB cannot read `.lif` files
-
-Check that Bio-Formats is installed:
-
-```matlab
-which bfGetReader
-```
-
-### SAM2 does not launch
-
-Check `src/tools/sam2_config.json` and verify that all paths are valid on your local machine.
-
-### Outputs are generated but physical units look wrong
-
-Inspect the Bio-Formats metadata and confirm pixel size and Z-step calibration. Do not interpret physical lengths or volumes if metadata were not read correctly.
+1. In the MATLAB Command Window, run `run_suite`.
+2. The graphical dashboard should open without errors.
+3. Click "Select Root Folder" to choose where outputs will be saved.
+4. Launch the desired analysis module.

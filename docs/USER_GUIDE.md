@@ -1,20 +1,15 @@
 # User guide
-
-This guide explains how to use the two public workflows of **3D Mechano-Biological Analysis Suite**.
+This guide explains how to use the two public workflows of **3D Mechanobiological Analysis Suite**.
 
 ## 1. Purpose
-
 The suite converts collagen-rich confocal microscopy stacks into reproducible outputs for extracellular matrix analysis. The current public release contains two workflows:
-
-1. **Geodesic Tract Analysis**: estimates putative 3D ECM tracts between segmented cell regions and summarizes their geometry with calibrated descriptors.
+1. **Continuous ECM Density Mapping**: extracts threshold-free, continuous full-field ECM density maps from raw confocal stacks, avoiding optical fragmentation and binarization artefacts.
 2. **SAM2-assisted Degradation and Tunnel Annotation**: supports expert-reviewed annotation of degradation/tunnel-like ECM regions and exports reviewed masks, semantic labels and object metrics.
 
 The software is intended for ECM bioimage analysis. Numerical outputs should be interpreted as image-derived structural descriptors unless validated against independent biological or mechanical measurements.
 
 ## 2. Expected input data
-
 The workflows are designed for Leica `.lif` confocal datasets containing:
-
 - an ECM/collagen channel;
 - optionally a cell channel;
 - one or more positions/series;
@@ -24,69 +19,46 @@ The workflows are designed for Leica `.lif` confocal datasets containing:
 The software uses Bio-Formats / bfmatlab to read `.lif` data and retrieve metadata. If calibration metadata are unavailable or incorrectly read, review all exported physical units before interpreting distances, areas or volumes.
 
 ## 3. Starting the suite
-
 Open MATLAB in the repository root and run:
-
 ```matlab
 run_suite
 ```
 
 The dashboard opens with:
-
 - global output-folder selector;
-- Geodesic Tract Analysis launcher;
+- Continuous ECM Density Mapping launcher;
 - Degradation/Tunnel Annotation launcher.
 
 Select a clean output location outside the repository before running analyses.
 
-## 4. Geodesic Tract Analysis
+## 4. Continuous ECM Density Mapping
 
 ### 4.1 Objective
+This module transforms the raw ECM signal into a quantifiable, threshold-free continuous map, avoiding the structural fragmentation caused by binary thresholding.
 
-This workflow estimates putative 3D structural tracts between segmented cell regions through collagen-rich ECM. It treats the ECM signal as a continuous traversal-cost field rather than as a perfect discrete fiber graph.
-
-### 4.2 Conceptual workflow
-
-1. Load a `.lif` file.
-2. Select the relevant image series/position.
-3. Read voxel calibration from Bio-Formats metadata.
-4. Select ECM and cell channels.
-5. Segment cell regions from the cell channel.
-6. Smooth and normalize the ECM signal.
-7. Convert ECM intensity into a traversal-cost volume.
-8. Compute geodesic routes between accepted cell regions.
-9. Extract path coordinates and local tract neighborhoods.
-10. Summarize tract geometry with tensor descriptors.
-11. Export tables, figures, parameters and intermediate files.
+### 4.2 Key Parameters
+*   **ECM / fibers channel:** Select the channel index corresponding to the collagen/ECM signal.
+*   **Projection through Z:** Choose how the 3D stack is collapsed (Mean, Median, or Integrated signal). Mean is recommended for standard confocal stacks.
+*   **Background subtract pct:** Percentile (e.g., 1%) used to estimate and subtract global background noise.
+*   **Denoise sigma px:** Small Gaussian blur applied before mapping to reduce sensor noise (e.g., 0.8).
+*   **Final smooth sigma px:** Gaussian blur applied to the final projected heatmap for visualization (e.g., 3).
 
 ### 4.3 Main outputs
-
-Typical outputs include:
-
-- 3D geodesic tract renderings;
-- geodesic path coordinate arrays;
-- physical tract length and cell-pair identifiers;
-- fractional anisotropy and linearity descriptors;
-- inertia maps and path-overlaid review figures;
-- CSV/XLSX/MAT summary tables;
-- parameter logs and quality-control figures.
-
-This workflow does **not** generate reviewed degradation/tunnel masks or semantic segmentation datasets. Those outputs belong to the SAM2-assisted annotation workflow.
+The module creates a `Module_Continuous_Density` folder containing:
+*   `01_Raw_vs_Colormap/`: Side-by-side comparison of raw projection and normalized heatmap.
+*   `04_Overlay/`: Raw signal overlaid with the colormap.
+*   `05_Z_Profile_Summary/`: Signal decay and max intensity plotted across the Z-axis.
+*   `08_Tables/`: CSV/Excel tables containing the Gini Density Coefficient, Densification Index, and Remodelling Contrast Index.
 
 ### 4.4 Interpretation
-
-High fractional anisotropy and high linearity indicate that the computed tract is elongated and directionally coherent. The outputs can support comparison of matrix organization across images or experimental conditions.
-
-Do not describe a tract as a direct measurement of active mechanical force transmission unless supported by independent measurements.
+The Gini Density Coefficient and Densification Index provide threshold-free metrics of matrix accumulation and architectural variance. These outputs support the comparison of global matrix heterogeneity across images or experimental conditions without forcing artificial binary segmentation.
 
 ## 5. SAM2-assisted Degradation and Tunnel Annotation
 
 ### 5.1 Objective
-
 This workflow supports expert-reviewed annotation of degradation/tunnel-like ECM regions in confocal Z-planes. SAM2 is used as a segmentation assistant; the reviewer remains responsible for accepting, correcting or rejecting masks.
 
 ### 5.2 Conceptual workflow
-
 1. Load a `.lif` file.
 2. Select the ECM channel and relevant series/position.
 3. Export raw Z-plane images for review.
@@ -97,9 +69,7 @@ This workflow supports expert-reviewed annotation of degradation/tunnel-like ECM
 8. Export object-level measurements and review figures.
 
 ### 5.3 Main outputs
-
 Typical outputs include:
-
 - raw image planes;
 - accepted binary masks;
 - no-tunnel/no-degradation labels;
@@ -110,13 +80,10 @@ Typical outputs include:
 - metadata and parameter logs.
 
 ### 5.4 Interpretation
-
 The exported masks are expert-reviewed image annotations. They can support quantitative analysis of degradation/tunnel-like regions and can also be reused as curated training data for future segmentation models.
 
 ## 6. Quality control
-
 Before using exported tables:
-
 1. inspect the representative figures;
 2. confirm that image calibration is correct;
 3. check that selected channels match the intended ECM/cell channels;
@@ -124,9 +91,7 @@ Before using exported tables:
 5. record parameter settings and dataset identifiers.
 
 ## 7. Reproducibility checklist
-
 For each analysis run, keep:
-
 - software version;
 - Git commit if available;
 - MATLAB version;
@@ -139,9 +104,7 @@ For each analysis run, keep:
 - reviewer identity or review protocol for manual annotations.
 
 ## 8. Data management and external assets
-
 The repository is designed as a lightweight, citable software release. Full analysis projects typically combine the public code with local assets managed outside GitHub:
-
 - raw confocal acquisitions and exported image stacks;
 - complete numerical output folders generated during analysis;
 - MATLAB workspaces and large intermediate arrays;

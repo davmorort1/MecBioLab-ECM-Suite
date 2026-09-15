@@ -1204,7 +1204,7 @@ end
 function mask3 = segmentCellStack(cellStack,px,minCellVolUm3,downsampleFactor)
     % 3-D Otsu-based cell segmentation from the selected CELL channel.
     %
-    % This intentionally mirrors geodesic_tract_analysis.m:
+    % This intentionally mirrors density.m:
     %   cell channel -> max normalization -> optional downsample -> Otsu over
     %   non-zero cell voxels -> 3-D bwareaopen by physical cell volume.
     %

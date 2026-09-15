@@ -10,22 +10,21 @@ The suite follows a traceability-oriented workflow. Every analysis run should be
 - Preserve input file identifiers, series/position numbers, selected channels and voxel calibration.
 - Inspect review figures before interpreting quantitative tables.
 
-## 2. Geodesic Tract Analysis reproducibility
+## 2. Continuous ECM Density Mapping reproducibility
 
 For each run, preserve:
 
 - input `.lif` file name or internal dataset identifier;
 - selected position/series;
-- ECM and cell channel assignments;
+- ECM channel assignment;
 - voxel size and Z-step;
-- geodesic parameters;
-- path coordinate files;
-- tract-level CSV/XLSX/MAT tables;
-- 3D tract renderings;
-- inertia maps/path-overlaid QC figures;
+- density analysis parameters (Z-projection method, background subtract pct, denoise sigma, final smooth sigma);
+- 2D/3D continuous density heatmaps;
+- raw signal vs colormap QC overlays and Z-profile figures;
+- CSV/XLSX/MAT tables containing Gini Density Coefficients and Densification Indices;
 - execution log.
 
-The key reproducible output is the combination of calibrated path coordinates, tract metrics and run parameters.
+The key reproducible output is the combination of the normalized full-field density heatmaps, extracted metrics and run parameters.
 
 ## 3. SAM2-assisted Annotation reproducibility
 
@@ -52,7 +51,7 @@ This separation keeps the code release citable and easy to review while allowing
 
 ## 5. Recommended release procedure
 
-The public `v1.0.0` release has been archived in Zenodo:
+The public `v1.1.0` release has been archived in Zenodo:
 
 <https://doi.org/10.5281/zenodo.20717656>
 

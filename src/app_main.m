@@ -2,7 +2,7 @@ function app_main()
 % APP_MAIN - MecBioLab ECM Suite dashboard.
 %
 % The public release exposes two focused workflows:
-%   1) Geodesic Tract Analysis
+%   1) Continuous ECM Density Mapping
 %   2) SAM2-assisted Degradation/Tunnel Annotation
 
     clc; close all;
@@ -56,7 +56,7 @@ function app_main()
     lbl_title.Layout.Column = 2;
 
     lbl_subtitle = uilabel(gl_header, 'Text', ...
-        '3D geodesic ECM tract analysis and SAM2-assisted degradation annotation', ...
+        'Continuous ECM density mapping and SAM2-assisted degradation annotation', ...
         'FontColor', c_text_p, 'FontSize', 14, 'FontName', 'Helvetica', ...
         'HorizontalAlignment', 'left', 'VerticalAlignment', 'top');
     lbl_subtitle.Layout.Row = 2;
@@ -83,9 +83,9 @@ function app_main()
     gl_body.Padding = [40 35 40 35];
     gl_body.BackgroundColor = c_panel;
 
-    uibutton(gl_body, 'Text', sprintf('Geodesic Tract Analysis\n3D ECM paths and tensor descriptors'), ...
+    uibutton(gl_body, 'Text', sprintf('Continuous ECM Density Mapping\nFull-field distributions and visual QC'), ...
         'BackgroundColor', c_btnBase, 'FontColor', 'w', 'FontSize', 16, ...
-        'FontWeight', 'bold', 'ButtonPushedFcn', @(btn,event) launchTool('geodesic'));
+        'FontWeight', 'bold', 'ButtonPushedFcn', @(btn,event) launchTool('density'));
 
     uibutton(gl_body, 'Text', sprintf('Degradation/Tunnel Annotation\nSAM2-assisted masks and metrics'), ...
         'BackgroundColor', c_btnBase, 'FontColor', 'w', 'FontSize', 16, ...
@@ -95,7 +95,7 @@ function app_main()
     gl_footer = uigridlayout(pnl_footer, [1 1]);
     gl_footer.BackgroundColor = c_bg;
     uilabel(gl_footer, 'Text', ...
-        'Developed by David Morón Ortega | MecBioLab Research Group - Universidad de Sevilla | v1.0.0', ...
+        'Developed by David Morón Ortega | MecBioLab Research Group - Universidad de Sevilla | v1.1.0', ...
         'FontColor', c_text_p, 'FontSize', 11, 'HorizontalAlignment', 'center');
 
     function selectGlobalDir(~, ~)
@@ -110,8 +110,8 @@ function app_main()
     function launchTool(toolName)
         fig_main.Visible = 'off';
         switch toolName
-            case 'geodesic'
-                geodesic_tract_analysis(fig_main);
+            case 'density'
+                density(fig_main);
             case 'annotation'
                 degradation_tunnel_annotation(fig_main);
             otherwise
