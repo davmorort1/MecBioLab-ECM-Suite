@@ -114,6 +114,9 @@ MecBioLab-ECM-Suite/
 - [Reproducibility and output management](docs/REPRODUCIBILITY.md)
 - [Publication scope](docs/PUBLICATION_SCOPE.md)
 
+## Test Dataset
+You can test the software using our representative dataset. [Download the Test Dataset (.lif format) here](https://github.com/davmorort1/MecBioLab-ECM-Suite/releases/download/v1.1.0/3DMAS_Test_Dataset.zip)
+
 ## Data and external assets
 
 Raw confocal acquisitions, complete output folders and SAM2 model weights are outside the archived code release. Users should analyse local microscopy datasets from their own storage location, configure model paths locally when using SAM2, and preserve full run outputs in an institutional or project-specific data store.
