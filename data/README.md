@@ -1,5 +1,4 @@
 # Data
 
-Raw microscopy datasets are not distributed with this software release.
-
-Use this folder only for lightweight, public demonstration material if such examples are added in a future release. Full confocal acquisitions and project-specific datasets should be stored in the appropriate institutional or project data location and referenced locally when running the workflows.
+## Test Dataset
+You can test the software using our representative dataset. [Download the Test Dataset (.lif format) here](https://github.com/davmorort1/MecBioLab-ECM-Suite/releases/download/v1.1.0/3DMAS_Test_Dataset.zip)
