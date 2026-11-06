@@ -1,10 +1,10 @@
 # Changelog
 
-## v1.1.0 Final Release
+## v1.1.1 Final Release
 
 Update aligned with the revised SoftwareX manuscript.
 
-Archived release DOI: <PENDING_ZENODO_DOI> (To be updated after release).
+Archived release DOI: <24008475>
 
 ### Included
 
