@@ -1,6 +1,6 @@
 # 3D Mechanobiological Analysis Suite
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20717656.svg)](https://doi.org/10.5281/zenodo.20717656)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24008475.svg)](https://doi.org/10.5281/zenodo.24008475)
 
 **# 3D Mechanobiological Analysis Suite** is an open-source MATLAB toolkit for reproducible analysis of collagen-rich extracellular matrix (ECM) organization and remodelling in three-dimensional confocal microscopy datasets.
 
@@ -19,9 +19,9 @@ Permanent repository link:
 
 <https://github.com/davmorort1/MecBioLab-ECM-Suite>
 
-Archived v1.1.0 release:
+Archived v1.1.1 release:
 
-<https://doi.org/10.5281/zenodo.20717656>
+<https://doi.org/10.5281/zenodo.24008475>
 
 ## Workflow overview
 
@@ -125,9 +125,9 @@ The public repository is intended to contain the software implementation, docume
 
 ## Citation
 
-If you use this software before the associated SoftwareX article is available, cite the archived v1.0.0 Zenodo release:
+If you use this software before the associated SoftwareX article is available, cite the archived v1.1.1 Zenodo release:
 
-> David Morón Ortega. 3D Mechanobiological Analysis Suite. Version v1.1.0 Final Release. Zenodo. https://doi.org/10.5281/zenodo.20717656
+> David Morón Ortega. 3D Mechanobiological Analysis Suite. Version v1.1.1 Final Release. Zenodo. https://doi.org/10.5281/zenodo.24008475
 
 After article publication, cite both the SoftwareX article and the archived software release when relevant. Repository citation metadata are provided in [`CITATION.cff`](CITATION.cff).
 
